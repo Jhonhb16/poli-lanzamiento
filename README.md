@@ -18,7 +18,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Configura `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` en `.env.local`.
+Configura las variables necesarias en `.env.local`. Para una demo local sin envio real, puedes dejar Supabase con placeholders.
 
 ## Supabase
 
@@ -39,12 +39,17 @@ Edita `src/config/launch.js` para cambiar:
 
 ## Deploy en Vercel
 
-1. Sube el repo a GitHub.
-2. Importa el repo en Vercel.
-3. Agrega las variables de entorno:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
-4. Deploy.
+Consulta `docs/DEPLOYMENT.md`.
+
+Variables de entorno esperadas:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+- `VITE_VIP_GROUP_URL`
+- `VITE_COMMUNITY_GROUP_URL`
+- `VITE_LOGO_URL`
+- `VITE_GTM_ID`
+- `VITE_META_PIXEL_ID`
 
 ## Tracking
 
@@ -57,3 +62,11 @@ La app emite eventos a `window.dataLayer`:
 - `lead_vip`
 - `lead_comunidad`
 - `lead_submit_error`
+
+Si `VITE_META_PIXEL_ID` existe, los mismos eventos se envian como `trackCustom` a Meta Pixel.
+
+## Go-live
+
+- Deploy: `docs/DEPLOYMENT.md`
+- Supabase: `docs/SUPABASE.md`
+- QA manual: `docs/QA.md`

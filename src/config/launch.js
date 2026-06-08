@@ -1,3 +1,5 @@
+const env = import.meta.env || {};
+
 export const launchConfig = {
   brandName: 'Korean Lash Business',
   eventName: 'Workshop Korean Lash Business',
@@ -7,10 +9,18 @@ export const launchConfig = {
   workshopDateTimeISO: '2026-06-23T19:00:00-04:00',
   workshopDisplayDate: '23 de junio de 2026',
   workshopDisplayTime: '7:00 PM ET',
-  vipGroupUrl: 'https://wa.me/0000000000?text=Quiero%20entrar%20al%20Grupo%20VIP',
-  communityGroupUrl: 'https://wa.me/0000000000?text=Quiero%20entrar%20a%20la%20Comunidad',
-  logoUrl: '',
+  vipGroupUrl:
+    env.VITE_VIP_GROUP_URL ||
+    'https://wa.me/0000000000?text=Quiero%20entrar%20al%20Grupo%20VIP',
+  communityGroupUrl:
+    env.VITE_COMMUNITY_GROUP_URL ||
+    'https://wa.me/0000000000?text=Quiero%20entrar%20a%20la%20Comunidad',
+  logoUrl: env.VITE_LOGO_URL || '',
   vipMinimumScore: 80,
+  tracking: {
+    gtmId: env.VITE_GTM_ID || '',
+    metaPixelId: env.VITE_META_PIXEL_ID || '',
+  },
   theme: {
     primary: '#7A304B',
     accent: '#D8B36A',

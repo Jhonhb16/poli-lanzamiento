@@ -4,10 +4,12 @@ import { launchConfig } from './config/launch.js';
 import { calculateScore, classifyLead } from './lib/scoring.js';
 import { saveLead, isSupabaseConfigured } from './lib/supabase.js';
 import { getUtmParams } from './lib/utm.js';
-import { track } from './lib/tracking.js';
+import { initMarketingTracking, track } from './lib/tracking.js';
 import { isValidEmail, isValidWhatsApp, normalizeWhatsApp } from './lib/validation.js';
 
 const app = document.querySelector('#app');
+
+initMarketingTracking(launchConfig.tracking);
 
 const questions = [
   {
@@ -121,6 +123,18 @@ function icon(name, className = 'h-5 w-5') {
   return iconMap[name]?.toSvg({ class: className, 'stroke-width': 2.2 }) || '';
 }
 
+function renderLogo(className = 'h-12 w-auto') {
+  if (!launchConfig.logoUrl) return '';
+
+  return `
+    <img
+      src="${escapeAttribute(launchConfig.logoUrl)}"
+      alt="${escapeAttribute(launchConfig.brandName)}"
+      class="${className}"
+    />
+  `;
+}
+
 function render() {
   const path = window.location.pathname;
 
@@ -146,6 +160,7 @@ function renderForm() {
       <section class="mx-auto grid min-h-[calc(100vh-40px)] w-full max-w-6xl items-center gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <aside class="hidden lg:block">
           <div class="max-w-md">
+            ${renderLogo('mb-6 h-14 w-auto')}
             <p class="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-rosewood">Workshop premium</p>
             <h1 class="font-display text-5xl font-extrabold leading-[1.02] text-ink">
               ${launchConfig.brandName}
@@ -172,6 +187,7 @@ function renderForm() {
           <header class="mb-6">
             <div class="mb-4 flex items-center justify-between gap-3">
               <div>
+                ${renderLogo('mb-3 h-10 w-auto')}
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-rosewood">${launchConfig.eventName}</p>
                 <h2 class="mt-2 font-display text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
                   Aplicación al workshop
@@ -422,6 +438,7 @@ function renderThankYou(type) {
       <section class="mx-auto flex min-h-[calc(100vh-64px)] w-full max-w-5xl items-center">
         <div class="grid w-full gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
+            ${renderLogo('mb-6 h-14 w-auto')}
             <p class="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-rosewood">${launchConfig.eventName}</p>
             <h1 class="font-display text-5xl font-extrabold leading-[1.02] text-ink sm:text-6xl">${config.title}</h1>
             <p class="mt-5 max-w-2xl text-lg leading-8 text-[#604d54]">${config.body}</p>
