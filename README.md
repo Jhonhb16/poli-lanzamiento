@@ -1,6 +1,6 @@
 # Korean Lash Business Funnel
 
-Aplicacion de captacion para el Workshop Korean Lash Business. Incluye formulario multi-step, scoring, clasificacion VIP/COMUNIDAD, captura UTM, guardado en Supabase y paginas de gracias con cuenta regresiva.
+Aplicación de captación para el Workshop Korean Lash Business. Incluye formulario multi-step, scoring, clasificación VIP/COMUNIDAD, captura UTM, guardado en Supabase y páginas de gracias con cuenta regresiva.
 
 ## Stack
 
@@ -22,11 +22,11 @@ Configura `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` en `.env.local`.
 
 ## Supabase
 
-Ejecuta la migracion en `supabase/migrations/202606080001_create_leads_korean_lash.sql`.
+Ejecuta la migración en `supabase/migrations/202606080001_create_leads_korean_lash.sql`.
 
 La tabla principal es `leads_korean_lash`.
 
-## Configuracion de lanzamiento
+## Configuración de lanzamiento
 
 Edita `src/config/launch.js` para cambiar:
 

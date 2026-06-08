@@ -13,7 +13,7 @@ export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabas
 
 export async function saveLead(lead) {
   if (!supabase) {
-    throw new Error('Supabase no esta configurado. Revisa las variables de entorno.');
+    throw new Error('Supabase no está configurado. Revisa las variables de entorno.');
   }
 
   const { error } = await supabase.from('leads_korean_lash').insert(lead);

@@ -12,25 +12,25 @@ const app = document.querySelector('#app');
 const questions = [
   {
     key: 'vive_usa',
-    label: 'Actualmente vives en Estados Unidos?',
+    label: '¿Actualmente vives en Estados Unidos?',
     type: 'choice',
-    options: ['Si', 'No'],
+    options: ['Sí', 'No'],
   },
   {
     key: 'es_mujer',
-    label: 'Eres mujer?',
+    label: '¿Eres mujer?',
     type: 'choice',
-    options: ['Si', 'No'],
+    options: ['Sí', 'No'],
   },
   {
     key: 'situacion_actual',
-    label: 'Cual describe mejor tu situacion actual?',
+    label: '¿Cuál describe mejor tu situación actual?',
     type: 'choice',
-    options: ['Tengo empleo', 'Soy ama de casa', 'Tengo un pequeno negocio', 'Actualmente no trabajo'],
+    options: ['Tengo empleo', 'Soy ama de casa', 'Tengo un pequeño negocio', 'Actualmente no trabajo'],
   },
   {
     key: 'objetivo',
-    label: 'Cual es tu principal objetivo?',
+    label: '¿Cuál es tu principal objetivo?',
     type: 'choice',
     options: [
       'Generar ingresos extra',
@@ -42,38 +42,38 @@ const questions = [
   {
     key: 'urgencia',
     label:
-      'Si encontraras una metodologia paso a paso para aprender extensiones de pestanas y construir un negocio, cuando te gustaria comenzar?',
+      'Si encontraras una metodología paso a paso para aprender extensiones de pestañas y construir un negocio, ¿cuándo te gustaría comenzar?',
     type: 'choice',
-    options: ['Inmediatamente', 'En los proximos 90 dias', 'Este ano', 'Solo estoy explorando'],
+    options: ['Inmediatamente', 'En los próximos 90 días', 'Este año', 'Solo estoy explorando'],
   },
   {
     key: 'asistencia',
-    label: 'Podrias asistir a una sesion online en vivo el 23 de junio?',
+    label: '¿Podrías asistir a una sesión online en vivo el 23 de junio?',
     type: 'choice',
-    options: ['Si', 'Probablemente', 'No estoy segura'],
+    options: ['Sí', 'Probablemente', 'No estoy segura'],
   },
   {
     key: 'compromiso',
-    label: 'Que tan comprometida estas con construir una nueva fuente de ingresos?',
+    label: '¿Qué tan comprometida estás con construir una nueva fuente de ingresos?',
     type: 'scale',
     min: 1,
     max: 10,
   },
   {
     key: 'objecion_principal',
-    label: 'Que te impide comenzar tu propio negocio hoy?',
+    label: '¿Qué te impide comenzar tu propio negocio hoy?',
     type: 'choice',
     options: [
       'Falta de dinero',
       'Falta de tiempo',
       'Falta de experiencia',
-      'No se conseguir clientas',
+      'No sé conseguir clientas',
       'Tengo miedo de fracasar',
     ],
   },
   {
     key: 'ciudad',
-    label: 'En que ciudad de Estados Unidos vives?',
+    label: '¿En qué ciudad de Estados Unidos vives?',
     type: 'text',
     placeholder: 'Ej. Miami, Houston, Orlando',
   },
@@ -91,7 +91,7 @@ const questions = [
   },
   {
     key: 'email',
-    label: 'Correo electronico',
+    label: 'Correo electrónico',
     type: 'email',
     placeholder: 'tu@email.com',
   },
@@ -162,7 +162,7 @@ function renderForm() {
               </div>
               <div class="rounded-lg border border-white/80 bg-white/55 p-4 shadow-soft">
                 <strong class="block text-2xl text-rosewood">Live</strong>
-                sesion online
+                sesión online
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ function renderForm() {
               <div>
                 <p class="text-xs font-bold uppercase tracking-[0.2em] text-rosewood">${launchConfig.eventName}</p>
                 <h2 class="mt-2 font-display text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
-                  Aplicacion al workshop
+                  Aplicación al workshop
                 </h2>
               </div>
               <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-rosewood text-sm font-extrabold text-white">
@@ -366,11 +366,11 @@ function validateCurrentStep(question) {
   }
 
   if (question.key === 'email' && !isValidEmail(value)) {
-    return 'Escribe un correo electronico valido.';
+    return 'Escribe un correo electrónico válido.';
   }
 
   if (question.key === 'whatsapp' && !isValidWhatsApp(value)) {
-    return 'Escribe un WhatsApp valido con codigo de pais o area.';
+    return 'Escribe un WhatsApp válido con código de país o área.';
   }
 
   return '';
@@ -403,7 +403,7 @@ async function submitLead() {
     state.isSubmitting = false;
     state.error = isSupabaseConfigured
       ? 'No pudimos guardar tu solicitud en este momento. Intentalo de nuevo en unos segundos.'
-      : 'La conexion con Supabase aun no esta configurada. Agrega las variables de entorno para activar el envio.';
+      : 'La conexión con Supabase aún no está configurada. Agrega las variables de entorno para activar el envío.';
     track('lead_submit_error', {
       message: error.message,
       score,
@@ -485,7 +485,7 @@ function startCountdown() {
     const seconds = Math.floor((distance / 1000) % 60);
 
     countdown.innerHTML = [
-      ['Dias', days],
+      ['Días', days],
       ['Horas', hours],
       ['Min', minutes],
       ['Seg', seconds],
